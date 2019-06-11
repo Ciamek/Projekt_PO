@@ -8,7 +8,7 @@ namespace ProjektSklepPO
 {
     class ProductFood : Product
     {
-
+        private bool rotten;
 
         public ProductFood(int id, string name, double price)
         {

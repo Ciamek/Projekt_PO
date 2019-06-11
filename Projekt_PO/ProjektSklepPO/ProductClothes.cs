@@ -9,7 +9,7 @@ namespace ProjektSklepPO
     class ProductClothes : Product
     {
 
-        string size;
+        private string size;
 
         public ProductClothes(int id, string name, double price, string size)
         {

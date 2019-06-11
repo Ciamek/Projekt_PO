@@ -8,7 +8,7 @@ namespace ProjektSklepPO
 {
     public class ProductElectronics : Product
     {
-        string brand;
+        private string brand;
 
         
 
