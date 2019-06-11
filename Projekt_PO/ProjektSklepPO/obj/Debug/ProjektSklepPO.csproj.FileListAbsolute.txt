@@ -5,3 +5,10 @@ C:\Users\Maciej Ciura\Desktop\studia\ProjektPO\ProjektSklepPO\ProjektSklepPO\obj
 C:\Users\Maciej Ciura\Desktop\studia\ProjektPO\ProjektSklepPO\ProjektSklepPO\obj\Debug\ProjektSklepPO.csproj.CoreCompileInputs.cache
 C:\Users\Maciej Ciura\Desktop\studia\ProjektPO\ProjektSklepPO\ProjektSklepPO\obj\Debug\ProjektSklepPO.exe
 C:\Users\Maciej Ciura\Desktop\studia\ProjektPO\ProjektSklepPO\ProjektSklepPO\obj\Debug\ProjektSklepPO.pdb
+C:\Users\Maciej Ciura\Desktop\GitHub\Studia\Projekt_PO\ProjektSklepPO\bin\Debug\ProjektSklepPO.exe.config
+C:\Users\Maciej Ciura\Desktop\GitHub\Studia\Projekt_PO\ProjektSklepPO\bin\Debug\ProjektSklepPO.exe
+C:\Users\Maciej Ciura\Desktop\GitHub\Studia\Projekt_PO\ProjektSklepPO\bin\Debug\ProjektSklepPO.pdb
+C:\Users\Maciej Ciura\Desktop\GitHub\Studia\Projekt_PO\ProjektSklepPO\obj\Debug\ProjektSklepPO.csprojAssemblyReference.cache
+C:\Users\Maciej Ciura\Desktop\GitHub\Studia\Projekt_PO\ProjektSklepPO\obj\Debug\ProjektSklepPO.csproj.CoreCompileInputs.cache
+C:\Users\Maciej Ciura\Desktop\GitHub\Studia\Projekt_PO\ProjektSklepPO\obj\Debug\ProjektSklepPO.exe
+C:\Users\Maciej Ciura\Desktop\GitHub\Studia\Projekt_PO\ProjektSklepPO\obj\Debug\ProjektSklepPO.pdb

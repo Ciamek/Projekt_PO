@@ -8,7 +8,7 @@ namespace ProjektSklepPO
 {
     class Checkout : IContentManager
     {
-        protected List<Product> productList;
+        private List<Product> productList;
 
         public Checkout(List<Product> productList)
         {

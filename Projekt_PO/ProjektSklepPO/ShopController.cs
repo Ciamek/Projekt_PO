@@ -8,14 +8,19 @@ namespace ProjektSklepPO
 {
     class ShopController : IShopController
     {
-        public static Storage storage = new Storage();
-        public static Cart cart = new Cart();
-        public Checkout checkout = new Checkout(cart.GetListOfProducts());
+        //Magazyn
+        private static Storage storage = new Storage();
+        //Koszyk
+        private static Cart cart = new Cart();
+        //Rachunek
+        private Checkout checkout = new Checkout(cart.GetListOfProducts());
 
         private char button;
         private int val;
         
-
+        /// <summary>
+        /// Podstawowe menu wyboru
+        /// </summary>
         public void ChooseAction()
         {
 
@@ -25,27 +30,39 @@ namespace ProjektSklepPO
                                   "3. Wyjście");
 
 
+                //Pobiera wartość przycisku
                 button = Console.ReadKey(true).KeyChar;
                 val = (int)button - 48;
 
                 switch (val)
                 {
+                    //Zakupy
                     case 1:
                         Console.Clear();
                         ShopChooseAction();
                     break;
 
+                    //Zarzadzanie magazynem
                     case 2:
                         Console.Clear();
                     ChooseStorageAction();
                         break;
 
+                    //Wyjście
                     case 3:
                     
+                    break;
+
+                    default:
+                    ChooseAction();
                     break;
                 }
         }
 
+
+        /// <summary>
+        /// Menu wyboru zakupowe
+        /// </summary>
         public void ShopChooseAction()
         {
 
@@ -62,41 +79,49 @@ namespace ProjektSklepPO
             switch (val)
             {
 
+                //Dodawanie produktu do koszyka
                 case 1:
                     Console.Clear();
                     AddToCart();
                     ShopChooseAction();
                     break;
 
+                //Usuwanie produktu z koszyka
                 case 2:
                     Console.Clear();
                     DeleteFromCart();
                     ShopChooseAction();
                     break;
 
+                //Podsumowanie rachunku
                 case 3:
                     Console.Clear();
                     Checkout();
 
                     break;
+
+                //Powrót
                 case 4:
                     Console.Clear();
                     ChooseAction();
                     break;
+
+                default:
+                    ShopChooseAction();
+                break;
             }
 
         }
 
-
+        /// <summary>
+        /// Rachunek
+        /// </summary>
         public void Checkout()
         {
             
             Console.WriteLine("Lista produktów: \n");
 
-
-            foreach (var product in checkout.GetListOfProducts())
-
-                Console.WriteLine(checkout.GetListOfProducts().IndexOf(product) + " " + product.GetName() + "  Cena: " + product.GetPrice());
+            GetListOfCheckoutProducts();
 
             Console.WriteLine("\n Suma do zapłaty: " + checkout.GetSumPrice() +
                               "\n\n\n 1. Zapłać i wyjdź." +
@@ -117,8 +142,15 @@ namespace ProjektSklepPO
                     Console.Clear();
                     ChooseAction();
                     break;
+                default:
+                    Checkout();
+                break;
             }
         }
+
+        /// <summary>
+        /// Menu wyboru magazynu
+        /// </summary>
         public void ChooseStorageAction()
         {
             Console.WriteLine("Co chcesz zrobić? \n" +
@@ -160,9 +192,15 @@ namespace ProjektSklepPO
                     Console.Clear();
                     ChooseAction();
                     break;
+                default:
+                    ChooseStorageAction();
+                break;
             }
         }
 
+        /// <summary>
+        /// Metoda zmieniająca ceny
+        /// </summary>
         private void ChangePrice()
         {
             Console.WriteLine("Wybierz produkt którego cenę chcesz zmienić:");
@@ -195,6 +233,10 @@ namespace ProjektSklepPO
                 ChangePrice();
             }
         }
+
+        /// <summary>
+        /// Wyświetla liste produktów w magazynie
+        /// </summary>
         public void GetListOfStorageProducts()
         {
             foreach (Product product in storage.GetListOfProducts())
@@ -205,6 +247,19 @@ namespace ProjektSklepPO
             }
         }
 
+        public void GetListOfCheckoutProducts()
+        {
+            foreach (Product product in checkout.GetListOfProducts())
+            {
+
+                Console.WriteLine(checkout.GetListOfProducts().IndexOf(product) + " " + product.GetName() + "  Cena: " + product.GetPrice());
+
+            }
+        }
+
+        /// <summary>
+        /// Wyświetla listę produktów w koszyku
+        /// </summary>
         public void GetListOfCartProducts()
         {
             foreach (Product product in cart.GetListOfProducts())
@@ -215,6 +270,9 @@ namespace ProjektSklepPO
             }
         }
 
+        /// <summary>
+        /// Dodaje produkt do koszyka
+        /// </summary>
         public void AddToCart()
         {
             Console.Clear();
@@ -235,6 +293,9 @@ namespace ProjektSklepPO
             GetListOfShopProducts();
         }
 
+        /// <summary>
+        /// Usuwa produkt z koszyka
+        /// </summary>
         public void DeleteFromCart()
         {
             Console.Clear();
@@ -254,7 +315,9 @@ namespace ProjektSklepPO
             GetListOfShopProducts();
         }
 
-
+        /// <summary>
+        /// Dodaje produkt do magazynu
+        /// </summary>
         public void AddToStorage()
         {
             Console.Clear();
@@ -272,6 +335,7 @@ namespace ProjektSklepPO
 
             switch (val)
             {
+                //elektronika
                 case 1:
                     Console.Clear();
                     Console.WriteLine("Podaj ID produktu:");
@@ -287,7 +351,7 @@ namespace ProjektSklepPO
 
                     storage.AddProduct(product);
                     break;
-
+                    //żywność
                 case 2:
                     Console.Clear();
                     Console.WriteLine("Podaj ID produktu:");
@@ -301,7 +365,7 @@ namespace ProjektSklepPO
 
                     storage.AddProduct(product);
                     break;
-
+                    //ubrania
                 case 3:
                     Console.Clear();
                     Console.Clear();
@@ -318,6 +382,7 @@ namespace ProjektSklepPO
                     storage.AddProduct(product);
                     break;
 
+                    //powrót
                 case 4:
                     Console.Clear();
                     ChooseAction();
@@ -326,6 +391,9 @@ namespace ProjektSklepPO
             }
         }
 
+        /// <summary>
+        /// Usuwa produkt z magazynu
+        /// </summary>
         public void DeleteFromStorage()
         {
             Console.Clear();
@@ -345,6 +413,9 @@ namespace ProjektSklepPO
 
         }
 
+        /// <summary>
+        /// Wyświetla listę produktów w koszyku i magazynie - stan sklepu
+        /// </summary>
         public void GetListOfShopProducts()
         {
             Console.Clear();
